@@ -1,0 +1,6 @@
+setuptools~=65.6.3
+spacy~=3.5.0
+numpy~=1.23.5
+gensim~=4.3.0
+networkx~=2.8.4
+igraph~=0.10.4

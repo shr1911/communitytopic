@@ -1,0 +1,9 @@
+site_name: community-topic
+site_url: https://community-topic.documentation.com/
+nav:
+    - Home: index.md
+    - Getting Started: getting-started.md
+    - Installation Guide: installation-guide.md
+    - API Reference: api-reference.md
+    - User Guide: user-guide.md
+theme: readthedocs
