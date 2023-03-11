@@ -89,6 +89,7 @@ class CommunityTopic:
 
         # Public attributes
         self.topics = None
+        self.topics_words = None
         self.hierarchical_topics = collections.defaultdict(dict)
         self.hierarchical_topics_words = collections.defaultdict(dict)
 
@@ -99,6 +100,7 @@ class CommunityTopic:
         self.clustering = None
         self.level_0 = None
         self.level_1 = collections.defaultdict(dict)
+        self.sentence_nb = None
 
     def fit(self):
 
@@ -109,11 +111,11 @@ class CommunityTopic:
         print("Generating network...")
         t0 = time()
         if self.network_window == "sentence":
-            sentence_nb = SentenceNetworkBuilder(self.corpus, self.dictionary)
+            self.sentence_nb = SentenceNetworkBuilder(self.corpus, self.dictionary)
         else:
-            sentence_nb = WindowNetworkBuilder(self.corpus, self.dictionary,
+            self.sentence_nb = WindowNetworkBuilder(self.corpus, self.dictionary,
                                                int(self.network_window))
-        sentence_nb.save_network(f"./network.txt", type=self.edge_weight, threshold=self.weight_threshold)
+        self.sentence_nb.save_network(f"./network.txt", type=self.edge_weight, threshold=self.weight_threshold)
         self.nx_g = nx.read_weighted_edgelist("./network.txt")
         self.ig_g = ig.Graph.from_networkx(self.nx_g)
         t1 = time()
@@ -140,7 +142,9 @@ class CommunityTopic:
             comm.sort(key=lambda node: get_internal_weighted_degree(node, c, self.nx_g), reverse=True)
             self.level_1[str(i)]["dict_num"] = comm
             i = i + 1
-        self.topics = [[self.dictionary[node] for node in comm] for comm in comms]
+
+        self.topics = comms
+        self.topics_words = [[self.dictionary[node] for node in comm] for comm in comms]
         t1 = time()
         print(f"Topics sorted in {t1 - t0} seconds")
 
@@ -148,23 +152,6 @@ class CommunityTopic:
         for cluster in self.clustering:
             self.level_1[str(i)]["ig_graph"] = self.ig_g.subgraph(cluster)
             i = i + 1
-
-    def get_topics(self):
-        # return topics as list of list
-        print("get_topics")
-        return self.topics
-
-    def get_topics_topn(self, n):
-        # return topics as list of list
-        print("get_topics_topn")
-        topn_topics = []
-        for topic in self.topics:
-            topn_topics.append(topic[:n])
-            print(topic[:n])
-
-    def visualize_topics(self):
-        # refer bertopic for this
-        print("visualize_topics")
 
     def fit_hierarchical(self, n_level=2):
         print("fit_hierarchical")
@@ -208,16 +195,48 @@ class CommunityTopic:
 
         return next_level
 
-    def get_topic_words_hierarchical(self, n_level=2):
+    def get_topics(self):
+        # return topics as list of list
+        print("get_topics")
+        return self.topics
+
+    def get_topics_words(self):
+        # return topics as list of list
+        print("get_topics")
+        return self.topics_words
+
+    def get_topics_topn(self, n):
+        # return topics as list of list
+        print("get_topics_topn")
+        topn_topics = []
+        for topic in self.topics:
+            topn_topics.append(topic[:n])
+            print(topic[:n])
+
+    def get_topics_words_topn(self, n):
+        # return topics as list of list
+        print("get_topics_topn")
+        topn_topics = []
+        for topic in self.topics:
+            topn_topics.append(topic[:n])
+            print(topic[:n])
+
+    def get_topic_hierarchical(self):
+        return self.hierarchical_topics
+
+    def get_topic_words_hierarchical(self):
         return self.hierarchical_topics_words
 
-    def get_n_topic_words_hierarchical(self, n_level=2):
+    def get_n_level_topic_words_hierarchical(self, n_level=2):
         topic_words = collections.defaultdict(dict)
 
         for i in range(1, n_level + 1):
             topic_words[i] = self.hierarchical_topics_words[i]
 
         return topic_words
+
+    def get_root_level_0(self):
+        return self.level_0
 
     # def to return along with dict number, ig_graph for both hierarchical and flat (returning self.hierarchical_topics)
     # 2 more getter function

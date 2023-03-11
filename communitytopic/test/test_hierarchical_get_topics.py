@@ -29,17 +29,20 @@ def main():
     # with open("./tokenized_test_corpus_docs.obj", "wb") as f:
     #     pickle.dump(tokenized_test_corpus_docs, f)
 
-    with open("./tokenized_train_corpus_docs.obj", "rb") as f:
-        tokenized_train_corpus_docs = pickle.load(f)
+    with open("./tokenized_bbc_train_sents.obj", "rb") as f:
+        tokenized_bbc_train_sents = pickle.load(f)
+
+    with open("./tokenized_bbc_train_docs.obj", "rb") as f:
+        tokenized_bbc_train_docs = pickle.load(f)
+
+    with open("./tokenized_bbc_test_docs.obj", "rb") as f:
+        tokenized_bbc_test_docs = pickle.load(f)
 
     with open("./dictionary.obj", "rb") as f:
         dictionary = pickle.load(f)
 
-    with open("./tokenized_test_corpus_docs.obj", "rb") as f:
-        tokenized_test_corpus_docs = pickle.load(f)
-
     t0 = time()
-    community_topic = CommunityTopic(corpus=tokenized_train_corpus_docs,
+    community_topic = CommunityTopic(corpus=tokenized_bbc_train_sents,
                                      dictionary=dictionary,
                                      edge_weight="count",
                                      weight_threshold=0.0,
@@ -50,7 +53,7 @@ def main():
     community_topic.fit_hierarchical(2)
     t1 = time()
 
-    topic_words = community_topic.get_n_topic_words_hierarchical(2)
+    topic_words = community_topic.get_n_level_topic_words_hierarchical(2)
     print(topic_words[2])
     print(len(topic_words[2]))
 
