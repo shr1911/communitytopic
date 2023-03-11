@@ -1,5 +1,5 @@
 site_name: community-topic
-site_url: https://community-topic.documentation.com/
+site_url: https://community-topic.readthedocs.com/
 nav:
     - Home: index.md
     - Getting Started: getting-started.md

@@ -14,8 +14,9 @@ from copy import deepcopy
 from time import time
 
 
-def do_preprocessing(corpus=None, ner=1, pos_filter=0, phrases="npmi", phrase_threshold=0.35):
-    corpus = corpus.split("\n")
+def do_preprocessing(train=None, test=None, ner=1, pos_filter=0, phrases="npmi", phrase_threshold=0.35):
+    train = train.split("\n")
+    test = test.split("\n")
     # need to specify entity types for NER
     ent_types = ["EVENT", "FAC", "GPE", "LOC", "ORG", "PERSON", "PRODUCT", "WORK_OF_ART"]
     if ner == 0:
@@ -54,30 +55,61 @@ def do_preprocessing(corpus=None, ner=1, pos_filter=0, phrases="npmi", phrase_th
 
     print("Preprocessing documents...")
     t0 = time()
-    docs = list(nlp.pipe(corpus))
+    train_docs = list(nlp.pipe(train))
+    test_docs = list(nlp.pipe(test))
 
-    tokenized_docs = list(tokenize_docs(docs, lowercase=True, sentences=False))
-    tokenized_sents = list(tokenize_docs(docs, lowercase=True, sentences=True))
+    tokenized_train_docs = list(tokenize_docs(train_docs, lowercase=True, sentences=False))
+    tokenized_train_sents = list(tokenize_docs(train_docs, lowercase=True, sentences=True))
+    tokenized_test_docs = list(tokenize_docs(test_docs, lowercase=True, sentences=False))
 
-    if not (phrases == "none"):
-        phrases, tokenized_docs, phrase_models = detect_phrases(tokenized_docs,
-                                                                num_iterations=2,
-                                                                scoring_method=phrases,
-                                                                threshold=phrase_threshold,
-                                                                min_count=None)
-        for model in phrase_models:
-            tokenized_sents = model[tokenized_sents]
-        tokenized_sents = [[token.replace(" ", "_") for token in sent] for sent in tokenized_sents]
-    else:
-        tokenized_docs = [[token.replace(" ", "_") for token in doc] for doc in tokenized_docs]
-        tokenized_sents = [[token.replace(" ", "_") for token in sent] for sent in tokenized_sents]
+    phrases, tokenized_train_docs, phrase_models = detect_phrases(tokenized_train_docs,
+                                                                              num_iterations=2,
+                                                                              scoring_method='npmi',
+                                                                              threshold=0.35,
+                                                                              min_count=None)
 
-    vocab, dictionary = create_vocabulary_and_dictionary(tokenized_docs, min_threshold=None)
-    tokenized_sents = filter_tokenized_docs_with_vocab(tokenized_sents, vocab)
-    tokenized_corpus_docs = [sent for sent in tokenized_sents if len(sent) > 0]
+    for model in phrase_models:
+        tokenized_train_sents = model[tokenized_train_sents]
+    tokenized_train_sents = [[token.replace(" ", "_") for token in sent] for sent in tokenized_train_sents]
+
+    for model in phrase_models:
+        tokenized_test_docs = model[tokenized_test_docs]
+    tokenized_test_docs = [[token.replace(" ", "_") for token in doc] for doc in tokenized_test_docs]
+
+    vocab, dictionary = create_vocabulary_and_dictionary(tokenized_train_docs, min_threshold=None)
+    tokenized_train_sents = filter_tokenized_docs_with_vocab(tokenized_train_sents, vocab)
+    tokenized_train_docs = filter_tokenized_docs_with_vocab(tokenized_train_docs, vocab)
+    tokenized_test_docs = filter_tokenized_docs_with_vocab(tokenized_test_docs, vocab)
+    test_vocab = set()
+    for doc in tokenized_test_docs:
+        for token in doc:
+            test_vocab.add(token)
+    tokenized_train_docs = [[token for token in doc if token in test_vocab] for doc in tokenized_train_docs]
+    tokenized_train_sents = [[token for token in sent if token in test_vocab] for sent in tokenized_train_sents]
+
+    tokenized_train_sents = [sent for sent in tokenized_train_sents if len(sent) > 0]
+    tokenized_train_docs = [doc for doc in tokenized_train_docs if len(doc) > 0]
+    tokenized_test_docs = [doc for doc in tokenized_test_docs if len(doc) > 0]
+
+    # if not (phrases == "none"):
+    #     phrases, tokenized_docs, phrase_models = detect_phrases(tokenized_docs,
+    #                                                             num_iterations=2,
+    #                                                             scoring_method=phrases,
+    #                                                             threshold=phrase_threshold,
+    #                                                             min_count=None)
+    #     for model in phrase_models:
+    #         tokenized_sents = model[tokenized_sents]
+    #     tokenized_sents = [[token.replace(" ", "_") for token in sent] for sent in tokenized_sents]
+    # else:
+    #     tokenized_docs = [[token.replace(" ", "_") for token in doc] for doc in tokenized_docs]
+    #     tokenized_sents = [[token.replace(" ", "_") for token in sent] for sent in tokenized_sents]
+    #
+    # vocab, dictionary = create_vocabulary_and_dictionary(tokenized_docs, min_threshold=None)
+    # tokenized_sents = filter_tokenized_docs_with_vocab(tokenized_sents, vocab)
+    # tokenized_corpus_docs = [sent for sent in tokenized_sents if len(sent) > 0]
     t1 = time()
     print(f"Preprocessing completed in {t1 - t0} seconds")
-    return tokenized_corpus_docs, dictionary
+    return tokenized_train_sents, tokenized_train_docs, tokenized_test_docs, dictionary
 
 
 class EntityMergerPipe:
