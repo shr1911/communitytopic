@@ -13,10 +13,74 @@ from gensim.corpora import Dictionary
 from copy import deepcopy
 from time import time
 
+# Following are connector words for different languages which is used for phrase detection task in pre-processing
+ITALIAN_CONNECTOR_WORDS = ['e', 'ed', 'da', 'o', 'da', 'per', 'con', 'a', 'an', 'il', 'presso', 'in', 'senza', 'o', 'a',
+                           'su', 'oppure']
+FRENCH_CONNECTOR_WORDS = ["le", "et", "à", "à", "ou", "or", "avec", "de", "pour", "ou", "sans", "par", "sur", "dans",
+                          "un", "une"]
+GERMAN_CONNECTOR_WORDS = ['der', 'und', 'bei', 'zu', 'oder', 'mit', 'von', 'für', 'von', 'ohne', 'durch', 'am', 'in',
+                          'an', 'a']
+SPANISH_CONNECTOR_WORDS = ['el', 'y', 'en', 'a', 'o', 'con', 'de', 'para', 'de', 'sin', 'por', 'sobre', 'en', 'un', 'a']
 
-def do_preprocessing(train=None, test=None, ner=1, pos_filter=0, phrases="npmi", phrase_threshold=0.35):
+
+def do_preprocessing(train=None, test=None, ner=1, pos_filter=0, phrases="npmi", phrase_threshold=0.35, language="en"):
+    """
+    This method perform pre-processing on train and test corpus, which makes it in the form needed by CommunityTopic
+
+    @param train: String
+        input training corpus
+
+    @param test: String
+        input testing corpus
+
+    @param ner: int
+        Named Entity Recogition flag
+        Possible values = [0, 1]
+        0 - to not use NER
+        1 - to use NER
+
+    @param pos_filter: int
+        Part-of-Speech filter is (entity extraction) for extracting features and marks the word in a text with labels
+        Possible values = [0, 1, 2, 3]
+        0 - No POS filtering
+        1 - Keep only adjectives, adverbs, nouns, proper nouns, and verbs
+        2 - Keep only adjectives, nouns, proper nouns
+        3 - Keep only nouns, proper nouns
+
+    @param phrases: String
+        'npmi' - currently using 'npmi' type for phrase detection
+
+    @param phrase_threshold: float
+        Phrase detection threshold
+        Currently using 0.35
+
+    @param language: String
+        Possible values = ['en', 'it', 'fr', 'de', 'es']
+        'en' - English
+        'it' - Italian
+        'fr' - French
+        'de' - German
+        'es' - Spanish
+        Language of the training and testing corpus
+
+    @return tokenized_train_sents: list of list
+        Returns pre-processed training corpus as sentence (in list of words form)
+
+    @return tokenized_train_docs: list of list
+        Returns pre-processed training corpus as docs (in list of words form)
+
+    @return tokenized_test_docs: list of list
+        Returns pre-processed training corpus as sentence (in list of words form)
+
+    @return dictionary: dict
+        Gensim dictionary object that tracks frequencies and can filter vocab
+        - keys are id for words
+        - values are words
+
+    """
     train = train.split("\n")
     test = test.split("\n")
+
     # need to specify entity types for NER
     ent_types = ["EVENT", "FAC", "GPE", "LOC", "ORG", "PERSON", "PRODUCT", "WORK_OF_ART"]
     if ner == 0:
@@ -47,8 +111,21 @@ def do_preprocessing(train=None, test=None, ner=1, pos_filter=0, phrases="npmi",
                    "filter_not_wordlike": True,
                    "pos_filters": pos_types}
 
+    spacy_model = "en_core_web_sm"
+    if language == 'it':
+        spacy_model = "it_core_news_sm"
+    elif language == 'fr':
+        spacy_model = "fr_core_news_sm"
+    elif language == 'de':
+        spacy_model = 'de_core_news_sm'
+    elif language == 'es':
+        spacy_model = 'es_core_news_sm'
+    else:
+        pass
+
     # create preprocessing pipeline
-    nlp = create_pipeline(detect_sentences=True,
+    nlp = create_pipeline(spacy_model=spacy_model,
+                          detect_sentences=True,
                           detect_entities=use_ner,
                           entity_types=ent_types,
                           filter_config=filter_dict)
@@ -63,10 +140,11 @@ def do_preprocessing(train=None, test=None, ner=1, pos_filter=0, phrases="npmi",
     tokenized_test_docs = list(tokenize_docs(test_docs, lowercase=True, sentences=False))
 
     phrases, tokenized_train_docs, phrase_models = detect_phrases(tokenized_train_docs,
-                                                                              num_iterations=2,
-                                                                              scoring_method='npmi',
-                                                                              threshold=0.35,
-                                                                              min_count=None)
+                                                                  num_iterations=2,
+                                                                  scoring_method='npmi',
+                                                                  threshold=0.35,
+                                                                  min_count=None,
+                                                                  language=language)
 
     for model in phrase_models:
         tokenized_train_sents = model[tokenized_train_sents]
@@ -295,6 +373,7 @@ def detect_phrases(
         scoring_method: str = "default",
         threshold: float = 1.0,
         min_count: Optional[int] = None,
+        language: str = "en"
 ) -> Tuple[Set[str], List[List[str]], List[Phrases]]:
     """
     Use gensim to detect and return meaningful n-grams. Return the n-grams, the docs with n-grams
@@ -306,13 +385,25 @@ def detect_phrases(
         min_count = math.ceil(2 * (0.02 * len(tokenized_docs)) ** (1 / math.log(10, math.e)))
     phrases = set()
     phrase_models = []
+    connector_words = ENGLISH_CONNECTOR_WORDS
+    if language == 'it':
+        connector_words = ITALIAN_CONNECTOR_WORDS
+    elif language == 'fr':
+        connector_words = FRENCH_CONNECTOR_WORDS
+    elif language == 'de':
+        connector_words = GERMAN_CONNECTOR_WORDS
+    elif language == 'es':
+        connector_words = SPANISH_CONNECTOR_WORDS
+    else:
+        pass
+
     for iteration in range(num_iterations):
         # detect significant bi-grams in text
         phrase_model = Phrases(tokenized_docs,
                                min_count=min_count,
                                threshold=threshold,
                                scoring=scoring_method,
-                               connector_words=ENGLISH_CONNECTOR_WORDS)
+                               connector_words=connector_words)
         # add detected bi-grams to set
         phrases |= phrase_model.export_phrases().keys()
         # add copy of phrase model to list

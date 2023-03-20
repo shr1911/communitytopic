@@ -3,3 +3,5 @@
 
 # Topic within topic graph like this - https://www.machinelearningplus.com/nlp/topic-modeling-visualization-how-to-present-results-lda-models/
 # Do different ideas in this link
+
+# for Hierarchical - https://stackoverflow.com/questions/51903172/how-to-display-a-tree-in-python-similar-to-msdos-tree-command/51920869#51920869
