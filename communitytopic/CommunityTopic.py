@@ -415,6 +415,15 @@ class CommunityTopic:
 
         return topic_words
 
+    def get_num_levels_count(self):
+        """
+        Returning numer of levels in hierarchy
+
+        @return: int
+        Count of levels
+        """
+        return len(self.hierarchical_topics_words)
+
     def get_nth_level(self, n=1):
         hierarchical_n_topics_words = collections.defaultdict()
         for key, topic in self.hierarchical_topics_words[n].items():
