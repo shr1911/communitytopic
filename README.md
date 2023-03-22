@@ -25,6 +25,11 @@ Here are some examples of how to use Community Topic:
 - What are the key features of the library?
 - Are there any best practices for using the library?
 
+## Vizualization
+
+- Flat topics
+- Hierarchical topics
+
 ## Contributing
 - How can users get involved?
 - What are the guidelines for contributing?
