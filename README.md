@@ -31,7 +31,7 @@ The easy way to install CommunityTopic is:
       pip install communitytopic
       
 ## Datasets and Evaluation Metrics Used
-We have used following dataset for our experiment.
+We have used following **dataset for our experiment**.
 
 | Name of the Dataset | Source  | Source Language |
 |---|---|---|
@@ -40,23 +40,23 @@ We have used following dataset for our experiment.
 | Reuters21578 | [Reuters21578](https://huggingface.co/datasets/reuters21578) | English |
 | Europarl | [Europarl](https://www.statmt.org/europarl/) | English, Italian, French, German, Spanish |
 
-Also we have used following metrics for our Evaluation:
+
+Also we have used following **metrics for our Evaluation**:
 
 **1. Coherences**
-- CV 
-- CNPMI
+To compare different topic models, we use two coherence measures: c_v and c_npmi. Both measures have been shown to correlate with human judgements of topic quality with CV having the strongest correlation
 
 **2. Diversity Measures**
-- PWU
-- PJD
-- IRBO
+- Proportion of unique words (PWU): Computes the proportion of unique words for the topic
+- Average Pairwise Jaccard Diversity (PJD): Coomputes the average pairwise jaccard distance between the topics.
+- Inverted Rank-Biased Overlap (IRBO): Computes score of the rank biased overlap over the topics. 
 
 **3. Hierarchical Measures**
-- Topic Specialization
-- Topic Affinity
+- Topic Specialization:  measures the distance of a topic’s probability distribution over terms from thegeneral probability distribution of all terms in the corpus given by their occurrence frequency. We expect topics at higher levels in the hierarchy closer to theroot to be more general and less specialized and topics further down the hierarchy to be more specialized
+- Topic Affinity: measures the similarity between a super-topic and a set of sub-topics. We expect higher affinity between a parent topic and its children and lower affinity between a parent topic and sub-topics which are not its children
 
 ## Getting Started (Try it out)
-This is an example which finds topic of BBC dataset using best combination for Pre-Processing and Community Topic Algorithm.
+This is an example tuotrial which finds topic of BBC dataset using best combination for Pre-Processing and Community Topic Algorithm.
 
 > Step 1: import necessary class of the library
 ```python
@@ -109,33 +109,21 @@ topic_words = community_topic.get_topics_words_topn(10)
 
 ## API Usage
 
-## Vizualization
+Following are the API functions that we expose by this library code:
 
-- Flat topics
-- Hierarchical topics
+| Method | Code |
+|---|---|
+| Fit the flat topic model | .fit() |
+| Fit the hiearchical topic model | .fit_hierarchical() |
+| Get flat topic words | .get_topics_words() |
+| Get topn _n_ flat topic word | .get_topics_words_topn(n=10) |
+| Get flat topics as dictionary id | .get_topics() |
+| Get hierarchical topic words | .get_topic_words_hierarchical() |
+| Get hierarchical topic as dictionary id an ig_graph of that topic | .get_topics_hierarchical() |
+| Geet first _n_ levels in hierarchy | .get_n_level_topic_words_hierarchical(n_level=2) |
+| Geet hierarchical topic words in a tree-like dictionary format | .get_hierarchy_tree |
 
-## Contributing
-- How can users get involved?
-- What are the guidelines for contributing?
-- Are there any coding standards or guidelines that contributors should follow?
-- What are the best ways to submit issues and feature requests?
-
-## License
-- What license is the library released under?
-- What are the terms of the license?
-- Are there any restrictions on how the library can be used or distributed?
-
-## Credits
-- Who created the library?
-- Who are the contributors to the project?
-- What sources or tools were used in the creation of the library?
-
-## Contact
-- Who should users contact for support or questions?
-- What is the best way to reach the project maintainer or team?
-- Are there any mailing lists, chat channels, or other communication channels that users can use to connect with the community?
 
 ## Conclusion
-- What are the main benefits of using Community Topic?
-- Why should users choose this library over other alternatives?
-- What is the future of the library, and how can users get involved?
+
+
