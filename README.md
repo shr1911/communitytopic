@@ -1,3 +1,5 @@
+[![](https://img.shields.io/pypi/v/communitytopic.svg)](https://pypi.org/project/communitytopic/)
+
 # Community Topic
 ## Introduction
 - **What is Community Topic**?
@@ -8,7 +10,7 @@ In this repository we present our novel method called Community Topic for Topic 
 
 Unfortunately, the most popular topic models in use today do not provide a suitable topic structure for these purposes and the state-of-the-art models based on neural networks suffer from many of the same drawbacks while requiring specialized hardware and many hours to train. This makes Community Topic an ideal topic modelling algorithm for both applied research and practical applications like conversational agents.
 
-## Installation
+## Requirement & Installation
 
 - System requirement
 
@@ -27,14 +29,85 @@ Unfortunately, the most popular topic models in use today do not provide a suita
 The easy way to install CommunityTopic is:
 
       pip install communitytopic
+      
+## Datasets and Evaluation Metrics Used
+We have used following dataset for our experiment.
 
-## Usage
-Here are some examples of how to use Community Topic:
+| Name of the Dataset | Source  | Source Language |
+|---|---|---|
+| BBC | [BBC](https://www.kaggle.com/competitions/learn-ai-bbc/data) | English |
+| 20Newsgroups | [20Newsgroups](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html) | English |
+| Reuters21578 | [Reuters21578](https://huggingface.co/datasets/reuters21578) | English |
+| Europarl | [Europarl](https://www.statmt.org/europarl/) | English, Italian, French, German, Spanish |
 
-- What are the main use cases for Community Topic?
-- How can the library be used?
-- What are the key features of the library?
-- Are there any best practices for using the library?
+Also we have used following metrics for our Evaluation:
+
+**1. Coherences**
+- CV 
+- CNPMI
+
+**2. Diversity Measures**
+- PWU
+- PJD
+- IRBO
+
+**3. Hierarchical Measures**
+- Topic Specialization
+- Topic Affinity
+
+## Getting Started (Try it out)
+This is an example which finds topic of BBC dataset using best combination for Pre-Processing and Community Topic Algorithm.
+
+> Step 1: import necessary class of the library
+```python
+
+from communitytopic import CommunityTopic
+from communitytopic import PreProcessing
+```
+
+> Step 2: Load raw corpus as the dataset, here we are using BBC dataset. 
+```python
+
+with open("<Path-To-Dataset>/bbc_train.txt", "r", encoding='utf-8') as f:
+      bbc_train = f.read()
+      
+with open("<Path-To-Dataset>/bbc_test.txt", "r", encoding='utf-8') as f:
+      bbc_test = f.read()
+```
+
+> Step 3: Performing pre-processing on training and testing corpus
+```python
+
+tokenized_bbc_train_sents, tokenized_bbc_train_docs, tokenized_bbc_test_docs, dictionary = PreProcessing.do_preprocessing(
+        train=bbc_train,
+        test=bbc_test,
+        ner=1,
+        pos_filter=3,
+        phrases="npmi",
+        phrase_threshold=0.35,
+        language="en")
+```
+
+> Step 4: Applying Community Topic algorithm on pre-processed data
+```python
+
+community_topic = CommunityTopic(train_corpus=tokenized_bbc_train_sents,  dictionary=dictionary)
+```
+
+> Step 5: Applying Community Topic algorithm on pre-processed data
+```python
+
+community_topic = CommunityTopic(train_corpus=tokenized_bbc_train_sents,  dictionary=dictionary)
+community_topic.fit()
+```
+
+> Step 6: Get topic words founded by abovr algorithm
+```python
+
+topic_words = community_topic.get_topics_words_topn(10)
+```
+
+## API Usage
 
 ## Vizualization
 
