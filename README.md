@@ -1,21 +1,32 @@
 # Community Topic
 ## Introduction
-- What is Community Topic?
-- What problem does it solve?
-- Who is it for?
-- Why was it created?
+- **What is Community Topic**?
 
-## Features
-- What can users do with Community Topic?
-- What are the main components of the library?
--nHow does it work?
+In this repository we present our novel method called Community Topic for Topic Modelleling as a Pypi library. Our algorithm, Community Topic, is based on mining communities of terms from term-occurrence networks extracted from the documents. In addition to providing interpretable collections of terms as topics, the network representation provides a natural topic structure. The topics form a network, so topic similarity is inferred from the weights of the edges between them. Super-topics can be found by iteratively applying community detection on the topic network, grouping similar topics together. Sub-topics can be found by iteratively applying community detection on a single topic community. This can be done dynamically, with the user or conversation agent moving up and down the topic hierarchy as desired.
+
+- **What problem does it solve? & Who is it for?**
+
+Unfortunately, the most popular topic models in use today do not provide a suitable topic structure for these purposes and the state-of-the-art models based on neural networks suffer from many of the same drawbacks while requiring specialized hardware and many hours to train. This makes Community Topic an ideal topic modelling algorithm for both applied research and practical applications like conversational agents.
 
 ## Installation
 
-- What are the system requirements?
-- How can the library be installed?
-- What are the installation options (e.g., via pip, via cloning from GitHub, etc.)?
-- Are there any special instructions for specific platforms or environments?
+- System requirement
+
+      Python >= 3.6
+      commodity hardware
+      setuptools~=67.6.0
+      spacy~=3.5.0
+      numpy~=1.21.5
+      gensim~=4.2.0
+      networkx~=2.8.4
+      igraph~=0.10.4
+
+
+- Installation Option
+
+The easy way to install CommunityTopic is:
+
+      pip install communitytopic
 
 ## Usage
 Here are some examples of how to use Community Topic:
