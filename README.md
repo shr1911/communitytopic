@@ -1,4 +1,7 @@
+[![PyPI - Python](https://img.shields.io/badge/python-v3.6+-blue.svg)](https://pypi.org/project/communitytopic/)
 [![](https://img.shields.io/pypi/v/communitytopic.svg)](https://pypi.org/project/communitytopic/)
+[![](https://img.shields.io/pypi/v/communitytopic.svg)](https://github.com/shr1911/communitytopic/blob/main/LICENSE)
+[![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1npBdhbDI7c3NOfjhgbLYvUba6bLjAyUu?usp=sharing)
 
 # Community Topic
 ## Introduction
@@ -56,7 +59,7 @@ To compare different topic models, we use two coherence measures: c_v and c_npmi
 - Topic Affinity: measures the similarity between a super-topic and a set of sub-topics. We expect higher affinity between a parent topic and its children and lower affinity between a parent topic and sub-topics which are not its children
 
 ## Getting Started (Try it out)
-This is an example tuotrial which finds topic of BBC dataset using best combination for Pre-Processing and Community Topic Algorithm.
+This is an example tuotrial which finds topic of BBC dataset using best combination for Pre-Processing and Community Topic Algorithm. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1npBdhbDI7c3NOfjhgbLYvUba6bLjAyUu?usp=sharing)
 
 > Step 1: import necessary class of the library
 ```python
