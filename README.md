@@ -91,7 +91,7 @@ tokenized_bbc_train_sents, tokenized_bbc_train_docs, tokenized_bbc_test_docs, di
         language="en")
 ```
 
-> Step 4: Applying Community Topic algorithm on pre-processed data
+> Step 4: Initializing Community Topic algorithm's instance for pre-processed data
 ```python
 
 community_topic = CommunityTopic(train_corpus=tokenized_bbc_train_sents,  dictionary=dictionary)
