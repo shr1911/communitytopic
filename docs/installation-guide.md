@@ -2,6 +2,7 @@
 
 - System requirement
 
+  ```
       Python >= 3.6
       commodity hardware
       setuptools~=67.6.0
@@ -10,13 +11,14 @@
       gensim~=4.2.0
       networkx~=2.8.4
       igraph~=0.10.4
-
+  ```
 
 - Installation Option
 
     The easy way to install CommunityTopic is:
-
+     ```
       pip install communitytopic
+    ```
    
    
 - Spacy models for different languages for pre-processing (Commuity Topic has a pre-processing function as shown in below getting started example, and it requires spacy model to be dowloaded via python for the language which we are using). Following are commands for the same :

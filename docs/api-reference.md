@@ -111,46 +111,54 @@ __init__(self, train_corpus=None, dictionary=None, edge_weight='count',
 #### Parameters
 
 - `train_corpus` : `list of list`  (of string)
-  - Preprocessed sentences of training corpus (List of list)
-  - It contains pre-processed tokenized sentence as list of list
+
+    - Preprocessed sentences of training corpus (List of list)
+    - It contains pre-processed tokenized sentence as list of list
 
 
 - `dictionary` : `dict`
-  - Gensim dictionary object that tracks frequencies and can filter vocab 
-  - keys are id for words 
-  - values are words
+
+    - Gensim dictionary object that tracks frequencies and can filter vocab 
+    - keys are id for words 
+    - values are words
 
 
 - `edge_weight`: `str`
-  - It is weight of edges which comes from the frequency of co-occurrence. 
-  - Possible values: ["count", "npmi"]
-  - "count":  Raw count of possible edges as the edge weight.
-  - "npmi": Weighing scheme which uses Normalized Pointwise Mutual Information (NPMI) between terms
+
+    - It is weight of edges which comes from the frequency of co-occurrence. 
+    - Possible values: ["count", "npmi"]
+    - "count":  Raw count of possible edges as the edge weight.
+    - "npmi": Weighing scheme which uses Normalized Pointwise Mutual Information (NPMI) between terms
 
 
 - `weight_threshold` : `float`
-  - The edges can be thresholded, i.e. those edges whose weights fall below a
+
+    - The edges can be thresholded, i.e. those edges whose weights fall below a
        certain threshold are removed from the network.
 
 
 - `cd_algorithm` : `str`
-  - To choose community detection algorithm, possible values: ["leiden", "walktrap"]
+
+    - To choose community detection algorithm, possible values: ["leiden", "walktrap"]
 
 
 - `resolution_parameter` : `float`
-  - Te resolution_parameter to use for leiden community detection algorithm. 
-  - Higher resolution_parameter lead to smaller communities, while 
-  - lower resolution_parameter lead to fewer larger communities.
+
+    - Te resolution_parameter to use for leiden community detection algorithm. 
+    - Higher resolution_parameter lead to smaller communities, while 
+    - lower resolution_parameter lead to fewer larger communities.
 
 
 - `network_window`:
-  - The network that we construct from a corpus has terms as vertices. This decides the
-           fixed sliding window of document. 
-  - Possible values: ["sentence", "5", "10"]
-  - "sentence": two terms co-occur if they both occur in the same sentence.
-  - "5" or "10": two terms co-occur if they both occur within a fixed-size sliding window over a document.
 
---------------------------
+    - The network that we construct from a corpus has terms as vertices. This decides the
+           fixed sliding window of document. 
+    - Possible values: ["sentence", "5", "10"]
+    - "sentence": two terms co-occur if they both occur in the same sentence.
+    - "5" or "10": two terms co-occur if they both occur within a fixed-size sliding window over a document.
+
+<hr style="border: 2px solid grey">
+
 
 ### Method: `fit`
 ```python
@@ -158,12 +166,9 @@ fit()
 ```
 
 This method performs task of finding simple topics
-1. Network generations
-2. Finding communities
-3. Prune communities greater than 2
-4. Convert it into topic words using vocab dictionary
 
---------------------------
+<hr style="border: 2px solid grey">
+
 
 ### Method: `fit_hierarchical`
 ```python
@@ -171,18 +176,15 @@ fit_hierarchical(n_level=2)
 ```
 
 This method performs task of finding hierarchical topics
-1. Calling fit() method first, which finds level_1/simple topics
-2. Generating next level using information stored in level_1
-3. Keep generating next levels for n_level number of times
-4. At this point hierarchical topics are generated
-5. Next, convert it into topic words using vocab dictionary
  
 
 #### Parameter
 - `n_level` : `int`
-  - Number of level for hierarchical topics
+
+    - Number of level for hierarchical topics
  
---------------------------
+<hr style="border: 2px solid grey">
+
 
 ### Method: `get_topics_words`
 ```python
@@ -193,9 +195,11 @@ Get topic words of flat topic modelling
 
 #### Returns
 - `topics` : `list of list`
-  - Returns flat topics as topic words
 
---------------------------
+    - Returns flat topics as topic words
+
+<hr style="border: 2px solid grey">
+
 
 ### Method: `get_topics_words_topn`
 ```python
@@ -206,13 +210,16 @@ Get top n topic words of flat topic modelling
 
 #### Parameter
 - `n` : `int`
-  - top n topic words
+
+    - top n topic words
 
 #### Returns
 - `topics` : `list of list`
-  - Returns top n flat topics as topic words
 
---------------------------
+    - Returns top n flat topics as topic words
+
+<hr style="border: 2px solid grey">
+
 
 ### Method: `get_topics`
 ```python
@@ -227,7 +234,8 @@ Get topic as dictionary id
 
     - Returns flat topics as dictionary id
 
---------------------------
+<hr style="border: 2px solid grey">
+
 
 ### Method: `get_topic_words_hierarchical`
 ```python
@@ -253,7 +261,8 @@ Get hierarchical topic as topic words
         }
         ```
       
---------------------------
+<hr style="border: 2px solid grey">
+
     
 ### Method: `get_topics_hierarchical`
 ```python
@@ -265,11 +274,13 @@ Get hierarchical topic as dictionary id, and ig_graph of topic
 
 #### Parameter
 - `n` : `int`
-  - top n topic words
+
+    - top n topic words
 
 #### Returns
 - `hierarchical_topics` : `dict of dict`
-  - Returns top hierarchical topics as topic words
+
+    - Returns top hierarchical topics as topic words
     - In following format (each level and topic in that level)-
 
       ```
@@ -297,7 +308,8 @@ Get hierarchical topic as dictionary id, and ig_graph of topic
           level 2 has two values seperated by underscore, first value is super topic and second is child topic
           Similary, level 3 has three values, for which parent topics and current child topic
 
---------------------------
+<hr style="border: 2px solid grey">
+
 
 ### Method: `get_topics_hierarchical`
 ```python
@@ -308,12 +320,15 @@ Get first n number of levels from hierarchy
 
 #### Parameter
 - `n_level` : `int`
-  - top n level
+
+    - top n level
 
 #### Returns
 - `topics` : `dict of dict`
 
---------------------------
+<hr style="border: 2px solid grey">
+
+
 
 ### Method: `get_hierarchy_tree`
 ```python
