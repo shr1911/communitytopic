@@ -127,6 +127,4 @@ Following are the API functions that we expose by this library code:
 | Geet hierarchical topic words in a tree-like dictionary format | .get_hierarchy_tree |
 
 
-## Conclusion
-
 
