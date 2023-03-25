@@ -28,7 +28,7 @@ Unfortunately, the most popular topic models in use today do not provide a suita
 
 - Installation Option
 
-The easy way to install CommunityTopic is:
+  The easy way to install CommunityTopic is:
 
       pip install communitytopic
    
