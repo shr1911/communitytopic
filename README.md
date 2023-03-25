@@ -1,6 +1,5 @@
 [![PyPI - Python](https://img.shields.io/badge/python-v3.6+-blue.svg)](https://pypi.org/project/communitytopic/)
 [![](https://img.shields.io/pypi/v/communitytopic.svg)](https://pypi.org/project/communitytopic/)
-[![](https://img.shields.io/pypi/v/communitytopic.svg)](https://github.com/shr1911/communitytopic/blob/main/LICENSE)
 [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1npBdhbDI7c3NOfjhgbLYvUba6bLjAyUu?usp=sharing)
 
 # Community Topic
