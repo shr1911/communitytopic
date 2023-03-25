@@ -1,4 +1,6 @@
+[![PyPI - Python](https://img.shields.io/badge/python-v3.6+-blue.svg)](https://pypi.org/project/communitytopic/)
 [![](https://img.shields.io/pypi/v/communitytopic.svg)](https://pypi.org/project/communitytopic/)
+[![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1npBdhbDI7c3NOfjhgbLYvUba6bLjAyUu?usp=sharing)
 
 # Community Topic
 ## Introduction
@@ -26,9 +28,21 @@ Unfortunately, the most popular topic models in use today do not provide a suita
 
 - Installation Option
 
-The easy way to install CommunityTopic is:
+  The easy way to install CommunityTopic is:
 
       pip install communitytopic
+   
+   
+- Spacy models for different languages for pre-processing (Commuity Topic has a pre-processing function as shown in below getting started example, and it requires spacy model to be dowloaded via python for the language which we are using). Following are commands for the same :
+
+| Language | Commond to download spacy model |
+|---|---|
+| English | !python -m spacy download en_core_web_sm |
+| Italian | !python -m spacy download it_core_news_sm |
+| French | !python -m spacy download fr_core_news_sm |
+| German | !python -m spacy download de_core_news_sm |
+| Spanish | !python -m spacy download es_core_news_sm |
+
       
 ## Datasets and Evaluation Metrics Used
 We have used following **dataset for our experiment**.
@@ -56,7 +70,7 @@ To compare different topic models, we use two coherence measures: c_v and c_npmi
 - Topic Affinity: measures the similarity between a super-topic and a set of sub-topics. We expect higher affinity between a parent topic and its children and lower affinity between a parent topic and sub-topics which are not its children
 
 ## Getting Started (Try it out)
-This is an example tuotrial which finds topic of BBC dataset using best combination for Pre-Processing and Community Topic Algorithm.
+This is an example tuotrial which finds topic of BBC dataset using best combination for Pre-Processing and Community Topic Algorithm. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1npBdhbDI7c3NOfjhgbLYvUba6bLjAyUu?usp=sharing)
 
 > Step 1: import necessary class of the library
 ```python
@@ -68,10 +82,10 @@ from communitytopic import PreProcessing
 > Step 2: Load raw corpus as the dataset, here we are using BBC dataset. 
 ```python
 
-with open("<Path-To-Dataset>/bbc_train.txt", "r", encoding='utf-8') as f:
+with open("<Path-To-Train-Dataset>/bbc_train.txt", "r", encoding='utf-8') as f:
       bbc_train = f.read()
       
-with open("<Path-To-Dataset>/bbc_test.txt", "r", encoding='utf-8') as f:
+with open("<Path-To-Test-Dataset>/bbc_test.txt", "r", encoding='utf-8') as f:
       bbc_test = f.read()
 ```
 
@@ -88,20 +102,15 @@ tokenized_bbc_train_sents, tokenized_bbc_train_docs, tokenized_bbc_test_docs, di
         language="en")
 ```
 
+
 > Step 4: Applying Community Topic algorithm on pre-processed data
-```python
-
-community_topic = CommunityTopic(train_corpus=tokenized_bbc_train_sents,  dictionary=dictionary)
-```
-
-> Step 5: Applying Community Topic algorithm on pre-processed data
 ```python
 
 community_topic = CommunityTopic(train_corpus=tokenized_bbc_train_sents,  dictionary=dictionary)
 community_topic.fit()
 ```
 
-> Step 6: Get topic words founded by abovr algorithm
+> Step 5: Get topic words founded by abovr algorithm
 ```python
 
 topic_words = community_topic.get_topics_words_topn(10)
@@ -123,7 +132,5 @@ Following are the API functions that we expose by this library code:
 | Geet first _n_ levels in hierarchy | .get_n_level_topic_words_hierarchical(n_level=2) |
 | Geet hierarchical topic words in a tree-like dictionary format | .get_hierarchy_tree |
 
-
-## Conclusion
 
 
