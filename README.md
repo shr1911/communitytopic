@@ -1,7 +1,7 @@
 [![PyPI - Python](https://img.shields.io/badge/python-v3.6+-blue.svg)](https://pypi.org/project/communitytopic/)
 [![](https://img.shields.io/pypi/v/communitytopic.svg)](https://pypi.org/project/communitytopic/)
 [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1npBdhbDI7c3NOfjhgbLYvUba6bLjAyUu?usp=sharing)
-[![](https://readthedocs.org/projects/assets/badge/?version=latest)]([https://top2vec.readthedocs.io/en/latest/?badge=latest](https://shr1911.github.io/communitytopic/)
+[![](https://readthedocs.org/projects/assets/badge/?version=latest)](https://shr1911.github.io/communitytopic/)
 
 # Community Topic
 ## Introduction
