@@ -32,6 +32,18 @@ Unfortunately, the most popular topic models in use today do not provide a suita
 The easy way to install CommunityTopic is:
 
       pip install communitytopic
+   
+   
+- Spacy models for different languages for pre-processing (Commuity Topic has a pre-processing function as shown in below getting started example, and it requires spacy model to be dowloaded via python for the language which we are using). Following are commands for the same :
+
+| Language | Commond to download spacy model |
+|---|---|
+| English | !python -m spacy download en_core_web_sm |
+| Italian | !python -m spacy download it_core_news_sm |
+| French | !python -m spacy download fr_core_news_sm |
+| German | !python -m spacy download de_core_news_sm |
+| Spanish | !python -m spacy download es_core_news_sm |
+
       
 ## Datasets and Evaluation Metrics Used
 We have used following **dataset for our experiment**.
