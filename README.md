@@ -82,10 +82,10 @@ from communitytopic import PreProcessing
 > Step 2: Load raw corpus as the dataset, here we are using BBC dataset. 
 ```python
 
-with open("<Path-To-Dataset>/bbc_train.txt", "r", encoding='utf-8') as f:
+with open("<Path-To-Train-Dataset>/bbc_train.txt", "r", encoding='utf-8') as f:
       bbc_train = f.read()
       
-with open("<Path-To-Dataset>/bbc_test.txt", "r", encoding='utf-8') as f:
+with open("<Path-To-Test-Dataset>/bbc_test.txt", "r", encoding='utf-8') as f:
       bbc_test = f.read()
 ```
 
