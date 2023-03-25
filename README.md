@@ -103,20 +103,15 @@ tokenized_bbc_train_sents, tokenized_bbc_train_docs, tokenized_bbc_test_docs, di
         language="en")
 ```
 
-> Step 4: Initializing Community Topic algorithm's instance for pre-processed data
-```python
 
-community_topic = CommunityTopic(train_corpus=tokenized_bbc_train_sents,  dictionary=dictionary)
-```
-
-> Step 5: Applying Community Topic algorithm on pre-processed data
+> Step 4: Applying Community Topic algorithm on pre-processed data
 ```python
 
 community_topic = CommunityTopic(train_corpus=tokenized_bbc_train_sents,  dictionary=dictionary)
 community_topic.fit()
 ```
 
-> Step 6: Get topic words founded by abovr algorithm
+> Step 5: Get topic words founded by abovr algorithm
 ```python
 
 topic_words = community_topic.get_topics_words_topn(10)
