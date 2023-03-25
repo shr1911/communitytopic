@@ -38,9 +38,9 @@ def main():
     # with open("../dictionary.obj", "rb") as f:
     #     dictionary = pickle.load(f)
 
-    with open("../../text_datasets/reuters_train.txt", "r") as f:
+    with open("../../../text_datasets/reuters_train.txt", "r") as f:
         bbc_train = f.read();
-    with open("../../text_datasets/reuters_test.txt", "r") as f:
+    with open("../../../text_datasets/reuters_test.txt", "r") as f:
         bbc_test = f.read();
 
     tokenized_bbc_train_sents, tokenized_bbc_train_docs, tokenized_bbc_test_docs, dictionary = PreProcessing.do_preprocessing(

@@ -313,7 +313,7 @@ class CommunityTopic:
             topn_topics.append(topic[:n])
         return topn_topics
 
-    def get_topics_words_topn(self, n):
+    def get_topics_words_topn(self, n=10):
         """
         Get top n topic words for each topic
 
@@ -350,9 +350,9 @@ class CommunityTopic:
         """
         return self.hierarchical_topics_words
 
-    def get_topic_hierarchical(self):
+    def get_topics_hierarchical(self):
         """
-        Get hierarchical topic as dictionary id, ang ig_graph of topic
+        Get hierarchical topic as dictionary id, and ig_graph of topic
 
         @return:
             hierarchical_topics: dict of dict
@@ -440,8 +440,47 @@ class CommunityTopic:
         """
         return self.level_0
 
-    # def to return along with dict number, ig_graph for both hierarchical and flat (returning self.hierarchical_topics)
-    # 2 more getter function
+    def get_hierarchy_tree(self):
+        """
+        This function is for visualisation purpose of hierarchical topics.
+
+        It returns a tree-like structure in dictionary format.
+
+        """
+        input_data = {}
+
+        for i in range(1, self.get_num_levels_count() + 1):
+            dictionary = self.get_nth_level(i)
+            for key in dictionary:
+                input_data[key] = ' '.join(dictionary[key])
+
+        tree = self.construct_tree(input_data)
+
+        return tree
+
+    def construct_tree(self, input_data):
+        """
+        Constructs a tree structure from the given dictionary data.
+        """
+        tree = defaultdict(dict)
+        for key, value in input_data.items():
+            path = key.split('_')
+            self.add_node(tree, path, value)
+        return tree
+
+    def add_node(self, tree, path, value):
+        """
+        Adds a node to the tree structure at the specified path with the specified value.
+        """
+        node = tree
+        l = len(path) - 1
+        for i, key in enumerate(path):
+            if i == l:
+                node.update({key: {}})
+            else:
+                node = node[key]
+            i_key = key
+        node[i_key]['value'] = value
 
 
 class SentenceNetworkBuilder:

@@ -1,6 +1,13 @@
 setuptools~=67.6.0
 spacy~=3.5.0
 numpy~=1.21.5
-gensim~=4.1.2
+gensim~=4.2.0
 networkx~=2.8.4
 igraph~=0.10.4
+scipy~=1.9.1
+tomotopy~=0.12.4
+top2vec~=1.0.29
+fasttext~=0.9.2
+matplotlib~=3.5.2
+wordcloud~=1.8.2.2
+communitytopic~=0.0.1

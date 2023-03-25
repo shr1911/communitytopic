@@ -8,7 +8,10 @@ Finding topic communities...
 Topics found in 0.02808237075805664 seconds
 Sorting topics...
 Topics sorted in 0.14191675186157227 seconds
-[['commission', 'council', 'parliament', 'european_parliament', 'president', 'debate', 'report', 'today', 'members', 'house'], ['development', 'employment', 'community', 'areas', 'measures', 'sector', 'policy', 'management', 'policies', 'tourism'], ['european_union', 'europe', 'rights', 'countries', 'people', 'union', 'institutions', 'world', 'government', 'country'], ['example', 'directive', 'member_states', 'france', 'transport', 'years', 'italy', 'problems', 'regulations', 'sea']]
+[['commission', 'council', 'parliament', 'european_parliament', 'president', 'debate', 'report', 'today', 'members', 'house'],
+['development', 'employment', 'community', 'areas', 'measures', 'sector', 'policy', 'management', 'policies', 'tourism'],
+ ['european_union', 'europe', 'rights', 'countries', 'people', 'union', 'institutions', 'world', 'government', 'country']
+  ['example', 'directive', 'member_states', 'france', 'transport', 'years', 'italy', 'problems', 'regulations', 'sea']
 Num topics: 4
 puw: 1.0
 jd: 1.0
@@ -33,7 +36,10 @@ Finding topic communities...
 Topics found in 0.03299832344055176 seconds
 Sorting topics...
 Topics sorted in 0.14899849891662598 seconds
-[['sviluppo', 'settore', 'livello', 'occupazione', 'mercato', 'particolare', 'settori', 'politica', 'imprese', 'risorse'], ['commissione', 'parlamento', 'parlamento_europeo', 'relazione', 'signor_presidente', 'presidente', 'onorevole', 'presidenza', 'deputati', 'colleghi'], ['paesi', 'unione_europea', 'europa', 'kosovo', 'regione', 'situazione', 'popolazione', 'pace', 'comunità', 'sicurezza'], ['diritto', 'membri', 'materia', 'diritti', 'applicazione', 'unione', 'trattato', 'lotta', 'articolo', 'cittadini']]
+['sviluppo', 'settore', 'livello', 'occupazione', 'mercato', 'particolare', 'settori', 'politica', 'imprese', 'risorse']
+ ['commissione', 'parlamento', 'parlamento_europeo', 'relazione', 'signor_presidente', 'presidente', 'onorevole', 'presidenza', 'deputati', 'colleghi']
+ ['paesi', 'unione_europea', 'europa', 'kosovo', 'regione', 'situazione', 'popolazione', 'pace', 'comunità', 'sicurezza']
+  ['diritto', 'membri', 'materia', 'diritti', 'applicazione', 'unione', 'trattato', 'lotta', 'articolo', 'cittadini']
 Num topics: 4
 puw: 1.0
 jd: 1.0
@@ -58,7 +64,11 @@ Finding topic communities...
 Topics found in 0.027999162673950195 seconds
 Sorting topics...
 Topics sorted in 0.15472650527954102 seconds
-[['commission', 'conseil', 'parlement', 'parlement_européen', 'députés', 'rapport', 'monsieur_président', 'groupe', 'assemblée', 'présidence'], ['pays', 'union_européenne', 'région', 'paix', 'kosovo', 'europe', 'aide', 'balkans', 'monde', 'guerre'], ['secteur', 'marché', 'environnement', 'services', 'emplois', 'niveau', 'entreprises', 'emploi', 'régions', 'protection'], ['droits', 'droit', 'principes', 'états_membres', 'principe', 'traité', 'état_membre', 'union', 'article', 'traités'], ['développement', 'cadre', 'programmes', 'coopération', 'politiques', 'politique', 'matière', 'vue', 'mise_uvre', 'gestion']]
+['commission', 'conseil', 'parlement', 'parlement_européen', 'députés', 'rapport', 'monsieur_président', 'groupe', 'assemblée', 'présidence']
+['pays', 'union_européenne', 'région', 'paix', 'kosovo', 'europe', 'aide', 'balkans', 'monde', 'guerre']
+['secteur', 'marché', 'environnement', 'services', 'emplois', 'niveau', 'entreprises', 'emploi', 'régions', 'protection']
+, ['droits', 'droit', 'principes', 'états_membres', 'principe', 'traité', 'état_membre', 'union', 'article', 'traités']
+ ['développement', 'cadre', 'programmes', 'coopération', 'politiques', 'politique', 'matière', 'vue', 'mise_uvre', 'gestion']
 Num topics: 5
 puw: 1.0
 jd: 1.0
@@ -83,7 +93,10 @@ Finding topic communities...
 Topics found in 0.01500391960144043 seconds
 Sorting topics...
 Topics sorted in 0.09099936485290527 seconds
-[['herrn', 'kommission', 'frau', 'parlament', 'parlaments', 'ausschuß', 'rates', 'rat', 'präsidentschaft', 'abgeordneten'], ['europäischen_union', 'union', 'menschenrechte', 'land', 'europa', 'demokratie', 'ländern', 'politik', 'europäische_union', 'menschen'], ['anwendung', 'mitgliedstaaten', 'artikel', 'ebene', 'bezug', 'schutz', 'einführung', 'grundlage', 'bestimmungen', 'normen'], ['entwicklung', 'schaffung', 'regionen', 'rahmen', 'förderung', 'maßnahmen', 'strukturfonds', 'ziel', 'zusammenarbeit', 'verbesserung']]
+['herrn', 'kommission', 'frau', 'parlament', 'parlaments', 'ausschuß', 'rates', 'rat', 'präsidentschaft', 'abgeordneten']
+ ['europäischen_union', 'union', 'menschenrechte', 'land', 'europa', 'demokratie', 'ländern', 'politik', 'europäische_union', 'menschen']
+ ['anwendung', 'mitgliedstaaten', 'artikel', 'ebene', 'bezug', 'schutz', 'einführung', 'grundlage', 'bestimmungen', 'normen']
+ ['entwicklung', 'schaffung', 'regionen', 'rahmen', 'förderung', 'maßnahmen', 'strukturfonds', 'ziel', 'zusammenarbeit', 'verbesserung']
 Num topics: 4
 puw: 1.0
 jd: 1.0
@@ -108,7 +121,10 @@ Finding topic communities...
 Topics found in 0.03510570526123047 seconds
 Sorting topics...
 Topics sorted in 0.1583874225616455 seconds
-[['comisión', 'parlamento_europeo', 'consejo', 'parlamento', 'presidencia', 'señorías', 'debate', 'informe', 'diputados', 'señor_presidente'], ['directiva', 'ambiente', 'protección', 'materia', 'normas', 'ejemplo', 'caso', 'propuesta', 'seguridad', 'aplicación'], ['unión_europea', 'país', 'países', 'europa', 'unión', 'derechos', 'democracia', 'integración', 'derechos_humanos', 'región'], ['desarrollo', 'empleo', 'políticas', 'regiones', 'creación', 'miembros', 'sector', 'política', 'nivel', 'medidas']]
+['comisión', 'parlamento_europeo', 'consejo', 'parlamento', 'presidencia', 'señorías', 'debate', 'informe', 'diputados', 'señor_presidente']
+['directiva', 'ambiente', 'protección', 'materia', 'normas', 'ejemplo', 'caso', 'propuesta', 'seguridad', 'aplicación']
+['unión_europea', 'país', 'países', 'europa', 'unión', 'derechos', 'democracia', 'integración', 'derechos_humanos', 'región']
+['desarrollo', 'empleo', 'políticas', 'regiones', 'creación', 'miembros', 'sector', 'política', 'nivel', 'medidas']
 Num topics: 4
 puw: 1.0
 jd: 1.0

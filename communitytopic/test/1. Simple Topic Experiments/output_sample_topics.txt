@@ -105,7 +105,11 @@ UMass : -3.798567053077541
 *** BBC ***
 with pos filtering --
 LDA 5 topics 6.492988586425781 seconds
-[['year', 'people', 'time', 'world', 'years', 'game', 'government', 'technology', 'music', 'way'], ['people', 'year', 'time', 'film', 'government', 'world', 'number', 'way', 'game', 'years'], ['year', 'company', 'firm', 'years', 'government', 'week', 'economy', 'people', 'growth', 'world'], ['year', 'people', 'time', 'game', 'film', 'world', 'years', 'number', 'club', 'wales'], ['year', 'people', 'government', 'time', 'election', 'labour', 'years', 'party', 'plans', 'music']]
+[['year', 'people', 'time', 'world', 'years', 'game', 'government', 'technology', 'music', 'way'],
+['people', 'year', 'time', 'film', 'government', 'world', 'number', 'way', 'game', 'years'],
+ ['year', 'company', 'firm', 'years', 'government', 'week', 'economy', 'people', 'growth', 'world'],
+ ['year', 'people', 'time', 'game', 'film', 'world', 'years', 'number', 'club', 'wales'],
+ ['year', 'people', 'government', 'time', 'election', 'labour', 'years', 'party', 'plans', 'music']]
 puw: 0.46
 jd: 0.6059523809523809
 irbo p=0.5: 0.3529368179563491
@@ -337,7 +341,8 @@ with pos filtering --
 2023-03-17 14:10:46,421 - top2vec - INFO - Finding dense areas of documents
 2023-03-17 14:10:46,981 - top2vec - INFO - Finding topics
 Num topics: 89
-['god' 'christians' 'jesus' 'faith' 'bible' 'christianity' 'belief' 'christian' 'scriptures' 'gospel'] ['gun' 'guns' 'self_defense' 'firearms' 'handgun' 'ownership' 'crime' 'gun_control' 'weapons' 'amendment']
+['god' 'christians' 'jesus' 'faith' 'bible' 'christianity' 'belief' 'christian' 'scriptures' 'gospel']
+['gun' 'guns' 'self_defense' 'firearms' 'handgun' 'ownership' 'crime' 'gun_control' 'weapons' 'amendment']
 ['encryption' 'clipper_chip' 'keys' 'clipper' 'nsa' 'escrow' 'wiretap' 'algorithm' 'phones' 'cryptography']
 ['openwindows' 'xlib' 'widget' 'pointer' 'window_manager' 'clients'  'application' 'server' 'contrib' 'resource']
 ['video_card' 'diamond' 'eisa' 'vlb' 'ati' 'vga' 'vram' 'svga' 'card' 'monitor']
@@ -1276,7 +1281,11 @@ u_mass : -1.045817470691301 (topn= 20 )
 4. Corex
 
 *** BBC ***
-[['market', 'firm', 'companies', 'firms', 'analysts', 'growth', 'users', 'technology', 'win', 'software'], ['government', 'mr', 'election', 'labour', 'minister', 'blair', 'tory', 'party', 'tories', 'secretary'], ['new', 'include', 'child', 'children', 'strongest', 'like', 'chart', 'sounds', 'work', 'single'], ['economy', 'economic', 'nations', 'taxes', 'unemployment', 'gordon', 'level', 'deficit', 'poverty', 'england'], ['films', 'film', 'hollywood', 'sideways', 'music', 'drake', 'popular', 'movie', 'genre', 'staunton']]
+[['market', 'firm', 'companies', 'firms', 'analysts', 'growth', 'users', 'technology', 'win', 'software'],
+['government', 'mr', 'election', 'labour', 'minister', 'blair', 'tory', 'party', 'tories', 'secretary'],
+['new', 'include', 'child', 'children', 'strongest', 'like', 'chart', 'sounds', 'work', 'single'],
+['economy', 'economic', 'nations', 'taxes', 'unemployment', 'gordon', 'level', 'deficit', 'poverty', 'england'],
+['films', 'film', 'hollywood', 'sideways', 'music', 'drake', 'popular', 'movie', 'genre', 'staunton']]
 puw: 1.0
 jd: 1.0
 irbo p=0.5: 1.0
@@ -1286,7 +1295,11 @@ c_npmi : -0.02267667292781015 (topn= 5 )
 u_mass : -4.407884601716885 (topn= 5 )
 
 *** NG20 ***
-[['april', 'including', 'information', 'national', 'armenian', 'armenians', 'following', 'united', 'called', 'center'], ['people', 'say', 'god', 'fact', 'don', 'think', 'make', 'believe', 'point', 'life'], ['time', 'use', 'way', 'used', 'public', 'real', 'general', 'like', 'new', 'years'], ['team', 'year', 'game', 'season', 'play', 'league', 'good', 'players', 'better', 'games'], ['windows', 'using', 'software', 'card', 'dos', 'file', 'pc', 'disk', 'program', 'files']]
+[['april', 'including', 'information', 'national', 'armenian', 'armenians', 'following', 'united', 'called', 'center'],
+['people', 'say', 'god', 'fact', 'don', 'think', 'make', 'believe', 'point', 'life'],
+['time', 'use', 'way', 'used', 'public', 'real', 'general', 'like', 'new', 'years'],
+['team', 'year', 'game', 'season', 'play', 'league', 'good', 'players', 'better', 'games'],
+['windows', 'using', 'software', 'card', 'dos', 'file', 'pc', 'disk', 'program', 'files']]
 puw: 1.0
 jd: 1.0
 irbo p=0.5: 1.0

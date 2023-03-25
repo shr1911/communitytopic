@@ -95,9 +95,11 @@ def main():
     t1 = time()
     topic_words = community_topic.get_n_level_topic_words_hierarchical(2)
 
-    input_data = get_input_data(community_topic)
-    tree = construct_tree(input_data)
-    print(tree)
+    # input_data = get_input_data(community_topic)
+    # tree = construct_tree(input_data)
+    # print(tree)
+
+    community_topic.get_hierarchy_tree()
 
 
     print(f"community topic on bbc finished in {t1 - t0} seconds")

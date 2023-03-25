@@ -40,9 +40,9 @@ def main():
     6. Calculate affinity between level 1 and level 2
 
     """
-    with open("../../text_datasets/europarl_en_train.txt", "r", encoding='utf-8') as f:
+    with open("../../../text_datasets/europarl_en_train.txt", "r", encoding='utf-8') as f:
         bbc_train = f.read()
-    with open("../../text_datasets/europarl_en_test.txt", "r", encoding='utf-8') as f:
+    with open("../../../text_datasets/europarl_en_test.txt", "r", encoding='utf-8') as f:
         bbc_test = f.read()
 
     tokenized_bbc_train_sents, tokenized_bbc_train_docs, tokenized_bbc_test_docs, dictionary = PreProcessing.do_preprocessing(
