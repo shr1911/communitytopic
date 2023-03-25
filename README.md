@@ -14,7 +14,7 @@ In this repository we present our novel method called Community Topic for Topic 
 Unfortunately, the most popular topic models in use today do not provide a suitable topic structure for these purposes and the state-of-the-art models based on neural networks suffer from many of the same drawbacks while requiring specialized hardware and many hours to train. This makes Community Topic an ideal topic modelling algorithm for both applied research and practical applications like conversational agents.
 
 
-Website Documentation is [here](https://shr1911.github.io/communitytopic/)
+[**Website Documentation is here**](https://shr1911.github.io/communitytopic/)
 
 ## Requirement & Installation
 
