@@ -1,6 +1,8 @@
 [![PyPI - Python](https://img.shields.io/badge/python-v3.6+-blue.svg)](https://pypi.org/project/communitytopic/)
 [![](https://img.shields.io/pypi/v/communitytopic.svg)](https://pypi.org/project/communitytopic/)
 [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1npBdhbDI7c3NOfjhgbLYvUba6bLjAyUu?usp=sharing)
+[![](https://readthedocs.org/projects/assets/badge/?version=latest)](https://shr1911.github.io/communitytopic/)
+[![](https://img.shields.io/pypi/l/communitytopic.svg)](https://github.com/shr1911/communitytopic/blob/main/LICENSE)
 
 # Community Topic
 ## Introduction
@@ -11,6 +13,9 @@ In this repository we present our novel method called Community Topic for Topic 
 - **What problem does it solve? & Who is it for?**
 
 Unfortunately, the most popular topic models in use today do not provide a suitable topic structure for these purposes and the state-of-the-art models based on neural networks suffer from many of the same drawbacks while requiring specialized hardware and many hours to train. This makes Community Topic an ideal topic modelling algorithm for both applied research and practical applications like conversational agents.
+
+
+[**Website Documentation is here**](https://shr1911.github.io/communitytopic/)
 
 ## Requirement & Installation
 
@@ -132,5 +137,6 @@ Following are the API functions that we expose by this library code:
 | Geet first _n_ levels in hierarchy | .get_n_level_topic_words_hierarchical(n_level=2) |
 | Geet hierarchical topic words in a tree-like dictionary format | .get_hierarchy_tree |
 
+Note for more detailed information go to [website documentation](https://shr1911.github.io/communitytopic/)
 
 
