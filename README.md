@@ -140,4 +140,3 @@ Following are the API functions that we expose by this library code:
 Note for more detailed information go to [website documentation](https://shr1911.github.io/communitytopic/)
 
 
-
