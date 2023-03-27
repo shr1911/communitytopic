@@ -2,6 +2,7 @@
 [![](https://img.shields.io/pypi/v/communitytopic.svg)](https://pypi.org/project/communitytopic/)
 [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1npBdhbDI7c3NOfjhgbLYvUba6bLjAyUu?usp=sharing)
 [![](https://readthedocs.org/projects/assets/badge/?version=latest)](https://shr1911.github.io/communitytopic/)
+[![](https://img.shields.io/pypi/l/communitytopic.svg)](https://github.com/shr1911/communitytopic/blob/main/LICENSE)
 
 # Community Topic
 ## Introduction
