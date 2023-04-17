@@ -55,6 +55,84 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">API Usage</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pre-processing-module">Pre-Processing Module</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#method-do_preprocessing">Method: do_preprocessing</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#returns">Returns</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#community-topic-module">Community Topic Module</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#class-constructor-__init__">Class constructor: __init__ </a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parameters_1">Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-fit">Method: fit </a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-fit_hierarchical">Method: fit_hierarchical </a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parameter">Parameter</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-get_topics_words">Method: get_topics_words </a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#returns_1">Returns</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-get_topics_words_topn">Method: get_topics_words_topn </a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parameter_1">Parameter</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#returns_2">Returns</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-get_topics">Method: get_topics </a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#returns_3">Returns</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-get_topic_words_hierarchical">Method: get_topic_words_hierarchical </a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#returns_4">Returns</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-get_topics_hierarchical">Method: get_topics_hierarchical </a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parameter_2">Parameter</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#returns_5">Returns</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-get_topics_hierarchical_1">Method: get_topics_hierarchical </a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parameter_3">Parameter</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#returns_6">Returns</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-get_hierarchy_tree">Method: get_hierarchy_tree </a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#returns_7">Returns</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -81,13 +159,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="api-usage">API Usage</h2>
+                <h1 id="api-usage">API Usage</h1>
 <p>There are two important classes in the library as follows:-
 - PreProcessing
 - CommunityTopic</p>
 <p>We will see API usage of both of them.</p>
 <h2 id="pre-processing-module">Pre-Processing Module</h2>
-<h3 id="method-do_preprocessing">Method: <code>do_preprocessing</code></h3>
+<h3 id="method-do_preprocessing"><u>Method: <code>do_preprocessing</code></u></h3>
 <p>The <code>do_preprocessing</code> method performs pre-processing on a given training and testing corpus to convert it into a format suitable for <code>CommunityTopic</code>.</p>
 <h4 id="parameters">Parameters</h4>
 <pre><code class="language-python">do_preprocessing(train=None, test=None, ner=1, pos_filter=0, phrases='npmi', phrase_threshold=0.35, language='en')
@@ -173,8 +251,10 @@ dictionary
 </ul>
 </li>
 </ul>
+<hr style="border: 2px solid grey">
+
 <h2 id="community-topic-module">Community Topic Module</h2>
-<h3 id="class-constructor-__init__">Class constructor: <code>__init__</code></h3>
+<h3 id="class-constructor-__init__"><u>Class constructor: <code>__init__</code> </u></h3>
 <pre><code class="language-python">__init__(self, train_corpus=None, dictionary=None, edge_weight='count',
          weight_threshold=0.0, cd_algorithm='leiden', resolution_parameter=1.0,
          network_window='sentence')
@@ -239,13 +319,13 @@ dictionary
 </ul>
 <hr style="border: 2px solid grey">
 
-<h3 id="method-fit">Method: <code>fit</code></h3>
+<h3 id="method-fit"><u>Method: <code>fit</code> </u></h3>
 <pre><code class="language-python">fit()
 </code></pre>
 <p>This method performs task of finding simple topics</p>
 <hr style="border: 2px solid grey">
 
-<h3 id="method-fit_hierarchical">Method: <code>fit_hierarchical</code></h3>
+<h3 id="method-fit_hierarchical"><u>Method: <code>fit_hierarchical</code> </u></h3>
 <pre><code class="language-python">fit_hierarchical(n_level=2)
 </code></pre>
 <p>This method performs task of finding hierarchical topics</p>
@@ -260,7 +340,7 @@ dictionary
 </ul>
 <hr style="border: 2px solid grey">
 
-<h3 id="method-get_topics_words">Method: <code>get_topics_words</code></h3>
+<h3 id="method-get_topics_words"><u>Method: <code>get_topics_words</code> </u></h3>
 <pre><code class="language-python">get_topics_words()
 </code></pre>
 <p>Get topic words of flat topic modelling</p>
@@ -275,7 +355,7 @@ dictionary
 </ul>
 <hr style="border: 2px solid grey">
 
-<h3 id="method-get_topics_words_topn">Method: <code>get_topics_words_topn</code></h3>
+<h3 id="method-get_topics_words_topn"><u>Method: <code>get_topics_words_topn</code> </u></h3>
 <pre><code class="language-python">get_topics_words_topn(n=10)
 </code></pre>
 <p>Get top n topic words of flat topic modelling</p>
@@ -299,7 +379,7 @@ dictionary
 </ul>
 <hr style="border: 2px solid grey">
 
-<h3 id="method-get_topics">Method: <code>get_topics</code></h3>
+<h3 id="method-get_topics"><u>Method: <code>get_topics</code> </u></h3>
 <pre><code class="language-python">get_topics()
 </code></pre>
 <p>Get topic as dictionary id</p>
@@ -314,7 +394,7 @@ dictionary
 </ul>
 <hr style="border: 2px solid grey">
 
-<h3 id="method-get_topic_words_hierarchical">Method: <code>get_topic_words_hierarchical</code></h3>
+<h3 id="method-get_topic_words_hierarchical"><u>Method: <code>get_topic_words_hierarchical</code> </u></h3>
 <pre><code class="language-python">get_topic_words_hierarchical()
 </code></pre>
 <p>Get hierarchical topic as topic words</p>
@@ -339,7 +419,7 @@ dictionary
 </ul>
 <hr style="border: 2px solid grey">
 
-<h3 id="method-get_topics_hierarchical">Method: <code>get_topics_hierarchical</code></h3>
+<h3 id="method-get_topics_hierarchical"><u>Method: <code>get_topics_hierarchical</code> </u></h3>
 <pre><code class="language-python">get_topics_hierarchical()
 </code></pre>
 <p>Get hierarchical topic as dictionary id, and ig_graph of topic</p>
@@ -385,7 +465,7 @@ dictionary
 </ul>
 <hr style="border: 2px solid grey">
 
-<h3 id="method-get_topics_hierarchical_1">Method: <code>get_topics_hierarchical</code></h3>
+<h3 id="method-get_topics_hierarchical_1"><u>Method: <code>get_topics_hierarchical</code> </u></h3>
 <pre><code class="language-python">get_n_level_topic_words_hierarchical(n_level=2)
 </code></pre>
 <p>Get first n number of levels from hierarchy</p>
@@ -404,7 +484,7 @@ dictionary
 </ul>
 <hr style="border: 2px solid grey">
 
-<h3 id="method-get_hierarchy_tree">Method: <code>get_hierarchy_tree</code></h3>
+<h3 id="method-get_hierarchy_tree"><u>Method: <code>get_hierarchy_tree</code> </u></h3>
 <pre><code class="language-python">get_hierarchy_tree()
 </code></pre>
 <p>This function is for visualisation purpose of hierarchical topics.</p>
