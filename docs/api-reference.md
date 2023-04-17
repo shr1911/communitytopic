@@ -1,4 +1,4 @@
-## API Usage
+# API Usage
 
 There are two important classes in the library as follows:-
 - PreProcessing
@@ -9,7 +9,7 @@ We will see API usage of both of them.
 
 ## Pre-Processing Module
 
-### Method: `do_preprocessing`
+### <u>Method: `do_preprocessing`</u>
 
 The `do_preprocessing` method performs pre-processing on a given training and testing corpus to convert it into a format suitable for `CommunityTopic`.
 
@@ -98,10 +98,11 @@ dictionary
     - Keys are id for words
     - Values are words
 
+<hr style="border: 2px solid grey">
 
 ## Community Topic Module
 
-### Class constructor: `__init__`
+###  <u>Class constructor: `__init__` </u>
 ```python
 __init__(self, train_corpus=None, dictionary=None, edge_weight='count',
          weight_threshold=0.0, cd_algorithm='leiden', resolution_parameter=1.0,
@@ -160,7 +161,7 @@ __init__(self, train_corpus=None, dictionary=None, edge_weight='count',
 <hr style="border: 2px solid grey">
 
 
-### Method: `fit`
+###  <u>Method: `fit` </u>
 ```python
 fit()
 ```
@@ -170,7 +171,7 @@ This method performs task of finding simple topics
 <hr style="border: 2px solid grey">
 
 
-### Method: `fit_hierarchical`
+###  <u>Method: `fit_hierarchical` </u>
 ```python
 fit_hierarchical(n_level=2)
 ```
@@ -186,7 +187,7 @@ This method performs task of finding hierarchical topics
 <hr style="border: 2px solid grey">
 
 
-### Method: `get_topics_words`
+###  <u>Method: `get_topics_words` </u>
 ```python
 get_topics_words()
 ```
@@ -201,7 +202,7 @@ Get topic words of flat topic modelling
 <hr style="border: 2px solid grey">
 
 
-### Method: `get_topics_words_topn`
+###  <u>Method: `get_topics_words_topn` </u>
 ```python
 get_topics_words_topn(n=10)
 ```
@@ -221,7 +222,7 @@ Get top n topic words of flat topic modelling
 <hr style="border: 2px solid grey">
 
 
-### Method: `get_topics`
+###  <u>Method: `get_topics` </u>
 ```python
 get_topics()
 ```
@@ -237,7 +238,7 @@ Get topic as dictionary id
 <hr style="border: 2px solid grey">
 
 
-### Method: `get_topic_words_hierarchical`
+###  <u>Method: `get_topic_words_hierarchical` </u>
 ```python
 get_topic_words_hierarchical()
 ```
@@ -264,7 +265,7 @@ Get hierarchical topic as topic words
 <hr style="border: 2px solid grey">
 
     
-### Method: `get_topics_hierarchical`
+###  <u>Method: `get_topics_hierarchical` </u>
 ```python
 get_topics_hierarchical()
 ```
@@ -311,7 +312,7 @@ Get hierarchical topic as dictionary id, and ig_graph of topic
 <hr style="border: 2px solid grey">
 
 
-### Method: `get_topics_hierarchical`
+###  <u>Method: `get_topics_hierarchical` </u>
 ```python
 get_n_level_topic_words_hierarchical(n_level=2)
 ```
@@ -330,7 +331,7 @@ Get first n number of levels from hierarchy
 
 
 
-### Method: `get_hierarchy_tree`
+###  <u>Method: `get_hierarchy_tree` </u>
 ```python
 get_hierarchy_tree()
 ```
