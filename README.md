@@ -115,11 +115,13 @@ community_topic = CommunityTopic(train_corpus=tokenized_bbc_train_sents,  dictio
 community_topic.fit()
 ```
 
-> Step 5: Get topic words founded by abovr algorithm
+> Step 5: Get topic words founded by above algorithm
 ```python
 
 topic_words = community_topic.get_topics_words_topn(10)
 ```
+
+> Notes: sample data files for getting started tutorial is [uploaded here.]()
 
 ## API Usage
 
